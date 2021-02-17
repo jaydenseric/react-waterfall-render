@@ -1,0 +1,80 @@
+{
+  "name": "react-waterfall-render",
+  "version": "1.0.0",
+  "description": "Renders nested React components with asynchronous cached loading; useful for GraphQL clients and server side rendering.",
+  "license": "MIT",
+  "author": {
+    "name": "Jayden Seric",
+    "email": "me@jaydenseric.com",
+    "url": "https://jaydenseric.com"
+  },
+  "repository": "github:jaydenseric/react-waterfall-render",
+  "homepage": "https://github.com/jaydenseric/react-waterfall-render#readme",
+  "bugs": "https://github.com/jaydenseric/react-waterfall-render/issues",
+  "funding": "https://github.com/sponsors/jaydenseric",
+  "keywords": [
+    "react",
+    "hooks",
+    "context",
+    "waterfall",
+    "render",
+    "renderer",
+    "data",
+    "loading",
+    "ssr",
+    "esm",
+    "mjs"
+  ],
+  "files": [
+    "public"
+  ],
+  "sideEffects": false,
+  "main": "public",
+  "exports": {
+    ".": {
+      "import": "./public/index.mjs",
+      "require": "./public/index.js"
+    },
+    "./public/": "./public/",
+    "./package": "./package.json",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": "^10.17.0 || ^12.0.0 || >= 13.7.0"
+  },
+  "browserslist": "Node 10.17 - 11 and Node < 11, Node 12 - 13 and Node < 13, Node >= 13.7, > 0.5%, not OperaMini all, not dead",
+  "peerDependencies": {
+    "react": "16.14 - 17"
+  },
+  "devDependencies": {
+    "coverage-node": "^4.0.0",
+    "disposable-directory": "^3.0.0",
+    "eslint": "^7.20.0",
+    "eslint-config-env": "^18.0.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-compat": "^3.9.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^31.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gzip-size": "^6.0.0",
+    "jsdoc-md": "^9.1.1",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "test-director": "^5.0.0",
+    "webpack": "^5.22.0"
+  },
+  "scripts": {
+    "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
+    "prepare:jsdoc": "jsdoc-md",
+    "prepare:prettier": "prettier --write readme.md",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:api",
+    "test:eslint": "eslint --ext mjs,js .",
+    "test:prettier": "prettier -c .",
+    "test:api": "coverage-node test",
+    "prepublishOnly": "npm test"
+  }
+}
