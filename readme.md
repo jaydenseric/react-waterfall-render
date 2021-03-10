@@ -153,7 +153,7 @@ _Loading data in a React component within a server and client side rendered app.
 >   const declareLoading = useContext(WaterfallRenderContext);
 >   const { load, loading, cache } = useUserProfileData(userId);
 >
->   // For this example, let’s assuming loading errors are cached.
+>   // For this example, assume loading errors are cached.
 >   if (cache) return <UserProfile data={cache} />;
 >
 >   if (!loading) {
