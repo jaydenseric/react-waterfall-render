@@ -17,6 +17,7 @@
 - Added a package `test:jsdoc` script that checks the readme API docs are up to date with the source JSDoc.
 - Moved the bundle test into its own file.
 - Test the bundle size using [`esbuild`](https://npm.im/esbuild) instead of [`webpack`](https://npm.im/webpack) and [`disposable-directory`](https://npm.im/disposable-directory).
+- Use the `.js` file extension in internal `require` paths.
 - Code example typo and lint fixes.
 
 ## 1.0.0

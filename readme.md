@@ -72,7 +72,7 @@ _How to server side render a React app in [Node.js](https://nodejs.org)._
 > ```jsx
 > const { renderToStaticMarkup } = require('react-dom/server');
 > const { waterfallRender } = require('react-waterfall-render');
-> const App = require('./components/App');
+> const App = require('./components/App.js');
 >
 > waterfallRender(<App />, renderToStaticMarkup).then((html) => {
 >   // Do something with the HTML string…
@@ -144,8 +144,8 @@ _Loading data in a React component within a server and client side rendered app.
 > ```jsx
 > const { useContext } = require('react');
 > const { WaterfallRenderContext } = require('react-waterfall-render');
-> const useUserProfileData = require('../hooks/useUserProfileData');
-> const UserProfile = require('./UserProfile');
+> const useUserProfileData = require('../hooks/useUserProfileData.js');
+> const UserProfile = require('./UserProfile.js');
 >
 > module.exports = function UserPage({ userId }) {
 >   const declareLoading = useContext(WaterfallRenderContext);

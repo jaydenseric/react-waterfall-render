@@ -1,7 +1,7 @@
 'use strict';
 
 const { jsx } = require('react/jsx-runtime');
-const WaterfallRenderContext = require('./WaterfallRenderContext');
+const WaterfallRenderContext = require('./WaterfallRenderContext.js');
 
 /**
  * Resolves a [React node]{@link ReactNode} rendered with all data loaded
@@ -45,7 +45,7 @@ const WaterfallRenderContext = require('./WaterfallRenderContext');
  * ```jsx
  * const { renderToStaticMarkup } = require('react-dom/server');
  * const { waterfallRender } = require('react-waterfall-render');
- * const App = require('./components/App');
+ * const App = require('./components/App.js');
  *
  * waterfallRender(<App />, renderToStaticMarkup).then((html) => {
  *   // Do something with the HTML string…

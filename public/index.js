@@ -1,7 +1,7 @@
 'use strict';
 
-exports.waterfallRender = require('./waterfallRender');
-exports.WaterfallRenderContext = require('./WaterfallRenderContext');
+exports.waterfallRender = require('./waterfallRender.js');
+exports.WaterfallRenderContext = require('./WaterfallRenderContext.js');
 
 /**
  * A React virtual DOM node; anything that can be rendered.
@@ -22,8 +22,8 @@ exports.WaterfallRenderContext = require('./WaterfallRenderContext');
  * ```jsx
  * const { useContext } = require('react');
  * const { WaterfallRenderContext } = require('react-waterfall-render');
- * const useUserProfileData = require('../hooks/useUserProfileData');
- * const UserProfile = require('./UserProfile');
+ * const useUserProfileData = require('../hooks/useUserProfileData.js');
+ * const UserProfile = require('./UserProfile.js');
  *
  * module.exports = function UserPage({ userId }) {
  *   const declareLoading = useContext(WaterfallRenderContext);
