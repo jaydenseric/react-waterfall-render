@@ -70,9 +70,9 @@ _Ways to `require`._
 _How to server side render a React app in [Node.js](https://nodejs.org)._
 
 > ```jsx
-> const { renderToStaticMarkup } = require('react-dom/server');
-> const { waterfallRender } = require('react-waterfall-render');
-> const App = require('./components/App.js');
+> import { renderToStaticMarkup } from 'react-dom/server.js';
+> import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
+> import App from './components/App.mjs';
 >
 > waterfallRender(<App />, renderToStaticMarkup).then((html) => {
 >   // Do something with the HTML string…
@@ -117,8 +117,8 @@ _Ways to `require`._
 _Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) React hook._
 
 > ```js
-> const { useContext } = require('react');
-> const { WaterfallRenderContext } = require('react-waterfall-render');
+> import { useContext } from 'react';
+> import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
 > ```
 >
 > ```js
@@ -142,12 +142,12 @@ Declares loading cache promises to [`waterfallRender`](#function-waterfallrender
 _Loading data in a React component within a server and client side rendered app._
 
 > ```jsx
-> const { useContext } = require('react');
-> const { WaterfallRenderContext } = require('react-waterfall-render');
-> const useUserProfileData = require('../hooks/useUserProfileData.js');
-> const UserProfile = require('./UserProfile.js');
+> import { useContext } from 'react';
+> import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
+> import useUserProfileData from '../hooks/useUserProfileData.mjs';
+> import UserProfile from './UserProfile.mjs';
 >
-> module.exports = function UserPage({ userId }) {
+> export default function UserPage({ userId }) {
 >   const declareLoading = useContext(WaterfallRenderContext);
 >   const { load, loading, cache } = useUserProfileData(userId);
 >
@@ -171,7 +171,7 @@ _Loading data in a React component within a server and client side rendered app.
 >   }
 >
 >   return 'Loading…';
-> };
+> }
 > ```
 
 ---

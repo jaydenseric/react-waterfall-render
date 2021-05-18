@@ -19,6 +19,7 @@
 - Test the bundle size using [`esbuild`](https://npm.im/esbuild) instead of [`webpack`](https://npm.im/webpack) and [`disposable-directory`](https://npm.im/disposable-directory).
 - Use the `.js` file extension in internal `require` paths.
 - Code example typo and lint fixes.
+- Converted code examples from CJS to ESM, using deep imports.
 
 ## 1.0.0
 

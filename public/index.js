@@ -20,12 +20,12 @@ exports.WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * @param {...Promise<*>} promises Promises that resolve once loading data has been cached. The values resolved don’t matter. Multiple arguments can be used, similar to how [`Array.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) works.
  * @example <caption>Loading data in a React component within a server and client side rendered app.</caption>
  * ```jsx
- * const { useContext } = require('react');
- * const { WaterfallRenderContext } = require('react-waterfall-render');
- * const useUserProfileData = require('../hooks/useUserProfileData.js');
- * const UserProfile = require('./UserProfile.js');
+ * import { useContext } from 'react';
+ * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
+ * import useUserProfileData from '../hooks/useUserProfileData.mjs';
+ * import UserProfile from './UserProfile.mjs';
  *
- * module.exports = function UserPage({ userId }) {
+ * export default function UserPage({ userId }) {
  *   const declareLoading = useContext(WaterfallRenderContext);
  *   const { load, loading, cache } = useUserProfileData(userId);
  *
@@ -49,6 +49,6 @@ exports.WaterfallRenderContext = require('./WaterfallRenderContext.js');
  *   }
  *
  *   return 'Loading…';
- * };
+ * }
  * ```
  */

@@ -29,8 +29,8 @@ const { createContext } = require('react');
  * ```
  * @example <caption>Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) React hook.</caption>
  * ```js
- * const { useContext } = require('react');
- * const { WaterfallRenderContext } = require('react-waterfall-render');
+ * import { useContext } from 'react';
+ * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
  * ```
  *
  * ```js

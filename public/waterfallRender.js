@@ -43,9 +43,9 @@ const WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * ```
  * @example <caption>How to server side render a React app in [Node.js](https://nodejs.org).</caption>
  * ```jsx
- * const { renderToStaticMarkup } = require('react-dom/server');
- * const { waterfallRender } = require('react-waterfall-render');
- * const App = require('./components/App.js');
+ * import { renderToStaticMarkup } from 'react-dom/server.js';
+ * import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
+ * import App from './components/App.mjs';
  *
  * waterfallRender(<App />, renderToStaticMarkup).then((html) => {
  *   // Do something with the HTML string…
