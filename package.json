@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "coverage-node": "^5.0.1",
-    "esbuild": "^0.11.23",
+    "esbuild": "^0.12.0",
     "eslint": "^7.26.0",
     "eslint-config-env": "^20.0.0",
     "eslint-config-prettier": "^8.3.0",
