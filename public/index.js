@@ -49,6 +49,6 @@ exports.WaterfallRenderContext = require('./WaterfallRenderContext');
  *   }
  *
  *   return 'Loading…';
- * }
+ * };
  * ```
  */
