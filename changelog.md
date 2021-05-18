@@ -10,6 +10,7 @@
 ### Patch
 
 - Updated GitHub Actions CI config to run tests with Node.js v12, v14, v16.
+- Moved the bundle test into its own file.
 - Fixed a code example comment typo.
 
 ## 1.0.0
