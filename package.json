@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "coverage-node": "^5.0.1",
-    "disposable-directory": "^4.0.0",
+    "esbuild": "^0.11.23",
     "eslint": "^7.26.0",
     "eslint-config-env": "^20.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -64,8 +64,7 @@
     "prettier": "^2.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
-    "test-director": "^6.0.0",
-    "webpack": "^5.37.0"
+    "test-director": "^6.0.0"
   },
   "scripts": {
     "jsdoc": "jsdoc-md",
