@@ -7,6 +7,7 @@
 - Updated Node.js support to `^12.20 || >= 14.13`.
 - Updated browser support to the Browserslist query `> 0.5%, not OperaMini all, not IE > 0, not dead`.
 - Updated dev dependencies, some of which require newer Node.js versions than were previously supported.
+- Replaced the the `package.json` `exports` field public [subpath folder mapping](https://nodejs.org/api/packages.html#packages_subpath_folder_mappings) (deprecated by Node.js) with a [subpath pattern](https://nodejs.org/api/packages.html#packages_subpath_patterns). Deep `require` paths within `react-waterfall-render/public/` must now include the `.js` file extension.
 - The tests are now ESM in `.mjs` files instead of CJS in `.js` files.
 
 ### Patch

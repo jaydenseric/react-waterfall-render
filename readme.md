@@ -64,7 +64,7 @@ _Ways to `require`._
 > ```
 >
 > ```js
-> const waterfallRender = require('react-waterfall-render/public/waterfallRender');
+> const waterfallRender = require('react-waterfall-render/public/waterfallRender.js');
 > ```
 
 _How to server side render a React app in [Node.js](https://nodejs.org)._
@@ -111,7 +111,7 @@ _Ways to `require`._
 > ```
 >
 > ```js
-> const WaterfallRenderContext = require('react-waterfall-render/public/WaterfallRenderContext');
+> const WaterfallRenderContext = require('react-waterfall-render/public/WaterfallRenderContext.js');
 > ```
 
 _Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) React hook._

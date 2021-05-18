@@ -39,7 +39,7 @@ const WaterfallRenderContext = require('./WaterfallRenderContext');
  * ```
  *
  * ```js
- * const waterfallRender = require('react-waterfall-render/public/waterfallRender');
+ * const waterfallRender = require('react-waterfall-render/public/waterfallRender.js');
  * ```
  * @example <caption>How to server side render a React app in [Node.js](https://nodejs.org).</caption>
  * ```jsx
