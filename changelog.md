@@ -7,6 +7,7 @@
 - Updated Node.js support to `^12.20 || >= 14.13`.
 - Updated browser support to the Browserslist query `> 0.5%, not OperaMini all, not IE > 0, not dead`.
 - Updated dev dependencies, some of which require newer Node.js versions than were previously supported.
+- The tests are now ESM in `.mjs` files instead of CJS in `.js` files.
 
 ### Patch
 

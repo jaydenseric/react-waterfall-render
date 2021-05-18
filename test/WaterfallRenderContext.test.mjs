@@ -1,12 +1,10 @@
-'use strict';
+import { strictEqual } from 'assert';
+import { useContext } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server.js';
+import { jsx } from 'react/jsx-runtime.js';
+import WaterfallRenderContext from '../public/WaterfallRenderContext.js';
 
-const { strictEqual } = require('assert');
-const { useContext } = require('react');
-const { renderToStaticMarkup } = require('react-dom/server');
-const { jsx } = require('react/jsx-runtime');
-const WaterfallRenderContext = require('../public/WaterfallRenderContext');
-
-module.exports = (tests) => {
+export default (tests) => {
   tests.add('`WaterfallRenderContext` used as a React context.', () => {
     const TestComponent = () => useContext(WaterfallRenderContext);
     const contextValue = 'abc';

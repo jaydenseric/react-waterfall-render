@@ -1,19 +1,18 @@
-'use strict';
+import { strictEqual } from 'assert';
+import fs from 'fs';
+import { join } from 'path';
+import { fileURLToPath } from 'url';
+import { promisify } from 'util';
+import disposableDirectory from 'disposable-directory';
+import gzipSize from 'gzip-size';
+import webpack from 'webpack';
 
-const { strictEqual } = require('assert');
-const fs = require('fs');
-const { join } = require('path');
-const { promisify } = require('util');
-const { disposableDirectory } = require('disposable-directory');
-const gzipSize = require('gzip-size');
-const webpack = require('webpack');
-
-module.exports = (tests) => {
+export default (tests) => {
   tests.add('Bundle.', async () => {
     await disposableDirectory(async (tempDirPath) => {
       const filename = 'bundle.cjs';
       const compiler = webpack({
-        context: __dirname,
+        context: fileURLToPath(new URL('./', import.meta.url)),
         entry: '../public/index.js',
         output: {
           path: tempDirPath,

@@ -1,15 +1,13 @@
-'use strict';
-
-const { deepStrictEqual, rejects, strictEqual } = require('assert');
-const { useContext } = require('react');
-const { renderToStaticMarkup } = require('react-dom/server');
-const { Fragment, jsx, jsxs } = require('react/jsx-runtime');
-const WaterfallRenderContext = require('../public/WaterfallRenderContext');
-const waterfallRender = require('../public/waterfallRender');
+import { deepStrictEqual, rejects, strictEqual } from 'assert';
+import { useContext } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server.js';
+import { Fragment, jsx, jsxs } from 'react/jsx-runtime.js';
+import WaterfallRenderContext from '../public/WaterfallRenderContext.js';
+import waterfallRender from '../public/waterfallRender.js';
 
 const LOADING_DELAY_MS = 100;
 
-module.exports = (tests) => {
+export default (tests) => {
   tests.add('`waterfallRender` with argument 1 missing.', async () => {
     await rejects(
       waterfallRender(),
