@@ -22,8 +22,8 @@ const WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * modern browser environments that support async functions, etc.
  * @kind function
  * @name waterfallRender
- * @param {ReactNode} reactNode React virtual DOM node.
- * @param {Function} render Synchronous React render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower).
+ * @param {ReactNode} reactNode [React](https://reactjs.org) virtual DOM node.
+ * @param {Function} render Synchronous [React](https://reactjs.org) render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower).
  * @returns {Promise<*>} Resolves the final render result, typically a HTML string.
  * @example <caption>Ways to `import`.</caption>
  * ```js
@@ -41,7 +41,7 @@ const WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * ```js
  * const waterfallRender = require('react-waterfall-render/public/waterfallRender.js');
  * ```
- * @example <caption>How to server side render a React app in [Node.js](https://nodejs.org).</caption>
+ * @example <caption>How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org).</caption>
  * ```jsx
  * import { renderToStaticMarkup } from 'react-dom/server.js';
  * import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';

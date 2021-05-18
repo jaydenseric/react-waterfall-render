@@ -4,17 +4,17 @@
 
 Renders nested [React](https://reactjs.org) components with asynchronous cached loading.
 
-Useful for GraphQL clients (e.g. [`graphql-react`](https://npm.im/graphql-react)) and server side rendering.
+Useful for [GraphQL](https://graphql.org) clients (e.g. [`graphql-react`](https://npm.im/graphql-react)) and server side rendering.
 
 ## Setup
 
 To install with [npm](https://npmjs.com/get-npm), run:
 
-```shell
+```sh
 npm install react-waterfall-render
 ```
 
-Use the [`WaterfallRenderContext`](#member-waterfallrendercontext) in React components to declare asynchronous cached loading, and use the function [`waterfallRender`](#function-waterfallrender) to server side render your React app in a fully loaded state.
+Use the [`WaterfallRenderContext`](#member-waterfallrendercontext) in [React](https://reactjs.org) components to declare asynchronous cached loading, and use the function [`waterfallRender`](#function-waterfallrender) to server side render your [React](https://reactjs.org) app in a fully loaded state.
 
 ## Support
 
@@ -40,8 +40,8 @@ Intended for use in a [Node.js](https://nodejs.org) environment for server side 
 
 | Parameter | Type | Description |
 | :-- | :-- | :-- |
-| `reactNode` | [ReactNode](#type-reactnode) | React virtual DOM node. |
-| `render` | Function | Synchronous React render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower). |
+| `reactNode` | [ReactNode](#type-reactnode) | [React](https://reactjs.org) virtual DOM node. |
+| `render` | Function | Synchronous [React](https://reactjs.org) render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower). |
 
 **Returns:** Promise<\*> — Resolves the final render result, typically a HTML string.
 
@@ -67,7 +67,7 @@ _Ways to `require`._
 > const waterfallRender = require('react-waterfall-render/public/waterfallRender.js');
 > ```
 
-_How to server side render a React app in [Node.js](https://nodejs.org)._
+_How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org)._
 
 > ```jsx
 > import { renderToStaticMarkup } from 'react-dom/server.js';
@@ -114,7 +114,7 @@ _Ways to `require`._
 > const WaterfallRenderContext = require('react-waterfall-render/public/WaterfallRenderContext.js');
 > ```
 
-_Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) React hook._
+_Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) [React](https://reactjs.org) hook._
 
 > ```js
 > import { useContext } from 'react';
@@ -129,7 +129,7 @@ _Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-r
 
 ### type DeclareLoading
 
-Declares loading cache promises to [`waterfallRender`](#function-waterfallrender). Available within React components via [`WaterfallRenderContext`](#member-waterfallrendercontext).
+Declares loading cache promises to [`waterfallRender`](#function-waterfallrender). Available within [React](https://reactjs.org) components via [`WaterfallRenderContext`](#member-waterfallrendercontext).
 
 **Type:** Function
 
@@ -139,7 +139,7 @@ Declares loading cache promises to [`waterfallRender`](#function-waterfallrender
 
 #### Examples
 
-_Loading data in a React component within a server and client side rendered app._
+_Loading data in a [React](https://reactjs.org) component within a server and client side rendered app._
 
 > ```jsx
 > import { useContext } from 'react';
@@ -178,6 +178,6 @@ _Loading data in a React component within a server and client side rendered app.
 
 ### type ReactNode
 
-A React virtual DOM node; anything that can be rendered.
+A [React](https://reactjs.org) virtual DOM node; anything that can be rendered.
 
 **Type:** `undefined` | `null` | boolean | number | string | React.Element | Array<[ReactNode](#type-reactnode)>

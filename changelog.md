@@ -20,6 +20,7 @@
 - Use the `.js` file extension in internal `require` paths.
 - Code example typo and lint fixes.
 - Converted code examples from CJS to ESM, using deep imports.
+- Documentation tweaks.
 
 ## 1.0.0
 

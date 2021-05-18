@@ -4,7 +4,8 @@ exports.waterfallRender = require('./waterfallRender.js');
 exports.WaterfallRenderContext = require('./WaterfallRenderContext.js');
 
 /**
- * A React virtual DOM node; anything that can be rendered.
+ * A [React](https://reactjs.org) virtual DOM node; anything that can be
+ * rendered.
  * @kind typedef
  * @name ReactNode
  * @type {undefined|null|boolean|number|string|React.Element|Array<ReactNode>}
@@ -12,13 +13,14 @@ exports.WaterfallRenderContext = require('./WaterfallRenderContext.js');
 
 /**
  * Declares loading cache promises to
- * [`waterfallRender`]{@link waterfallRender}. Available within React components
- * via [`WaterfallRenderContext`]{@link WaterfallRenderContext}.
+ * [`waterfallRender`]{@link waterfallRender}. Available within
+ * [React](https://reactjs.org) components via
+ * [`WaterfallRenderContext`]{@link WaterfallRenderContext}.
  * @kind typedef
  * @name DeclareLoading
  * @type {Function}
  * @param {...Promise<*>} promises Promises that resolve once loading data has been cached. The values resolved don’t matter. Multiple arguments can be used, similar to how [`Array.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) works.
- * @example <caption>Loading data in a React component within a server and client side rendered app.</caption>
+ * @example <caption>Loading data in a [React](https://reactjs.org) component within a server and client side rendered app.</caption>
  * ```jsx
  * import { useContext } from 'react';
  * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
