@@ -23,8 +23,6 @@ Use the [`WaterfallRenderContext`](#member-waterfallrendercontext) in React comp
 
 ## API
 
-### Table of contents
-
 - [function waterfallRender](#function-waterfallrender)
 - [member WaterfallRenderContext](#member-waterfallrendercontext)
 - [type DeclareLoading](#type-declareloading)
