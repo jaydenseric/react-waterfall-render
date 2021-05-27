@@ -6,6 +6,7 @@
 
 - Updated dev dependencies.
 - Renamed imports in the test index module.
+- Amended the changelog entry for v2.0.0.
 
 ## 2.0.0
 
@@ -28,6 +29,7 @@
 - Converted code examples from CJS to ESM, using deep imports.
 - Fixed a code example comment typo.
 - Documentation tweaks.
+- The file `changelog.md` is no longer published.
 
 ## 1.0.0
 
