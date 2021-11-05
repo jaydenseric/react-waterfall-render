@@ -70,11 +70,11 @@ _Ways to `require`._
 _How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org)._
 
 > ```jsx
-> import { renderToStaticMarkup } from 'react-dom/server.js';
+> import ReactDOMServer from 'react-dom/server.js';
 > import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
 > import App from './components/App.mjs';
 >
-> waterfallRender(<App />, renderToStaticMarkup).then((html) => {
+> waterfallRender(<App />, ReactDOMServer.renderToStaticMarkup).then((html) => {
 >   // Do something with the HTML string…
 > });
 > ```
@@ -117,12 +117,12 @@ _Ways to `require`._
 _Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) [React](https://reactjs.org) hook._
 
 > ```js
-> import { useContext } from 'react';
+> import React from 'react';
 > import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
 > ```
 >
 > ```js
-> const declareLoading = useContext(WaterfallRenderContext);
+> const declareLoading = React.useContext(WaterfallRenderContext);
 > ```
 
 ---
@@ -142,13 +142,13 @@ Declares loading cache promises to [`waterfallRender`](#function-waterfallrender
 _Loading data in a [React](https://reactjs.org) component within a server and client side rendered app._
 
 > ```jsx
-> import { useContext } from 'react';
+> import React from 'react';
 > import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
 > import useUserProfileData from '../hooks/useUserProfileData.mjs';
 > import UserProfile from './UserProfile.mjs';
 >
 > export default function UserPage({ userId }) {
->   const declareLoading = useContext(WaterfallRenderContext);
+>   const declareLoading = React.useContext(WaterfallRenderContext);
 >   const { load, loading, cache } = useUserProfileData(userId);
 >
 >   // For this example, assume loading errors are cached.

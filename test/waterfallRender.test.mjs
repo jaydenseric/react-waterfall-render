@@ -1,7 +1,6 @@
 import { deepStrictEqual, ok, rejects, strictEqual } from 'assert';
-import { useContext } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server.js';
-import { Fragment, jsx, jsxs } from 'react/jsx-runtime.js';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server.js';
 import WaterfallRenderContext from '../public/WaterfallRenderContext.js';
 import waterfallRender from '../public/waterfallRender.js';
 import getBundleSize from './getBundleSize.mjs';
@@ -26,13 +25,19 @@ export default (tests) => {
   tests.add('`waterfallRender` with the React node a string.', async () => {
     const string = 'abc';
 
-    strictEqual(await waterfallRender(string, renderToStaticMarkup), string);
+    strictEqual(
+      await waterfallRender(string, ReactDOMServer.renderToStaticMarkup),
+      string
+    );
   });
 
   tests.add(
     '`waterfallRender` with the React node the value `undefined`.',
     async () => {
-      strictEqual(await waterfallRender(undefined, renderToStaticMarkup), '');
+      strictEqual(
+        await waterfallRender(undefined, ReactDOMServer.renderToStaticMarkup),
+        ''
+      );
     }
   );
 
@@ -43,7 +48,10 @@ export default (tests) => {
       const TestComponent = () => string;
 
       strictEqual(
-        await waterfallRender(jsx(TestComponent, {}), renderToStaticMarkup),
+        await waterfallRender(
+          React.createElement(TestComponent),
+          ReactDOMServer.renderToStaticMarkup
+        ),
         string
       );
     }
@@ -56,7 +64,7 @@ export default (tests) => {
       const renderCacheHistory = [];
 
       const LoadingComponent = ({ cacheId }) => {
-        const declareLoading = useContext(WaterfallRenderContext);
+        const declareLoading = React.useContext(WaterfallRenderContext);
 
         if (!cache.includes(cacheId))
           declareLoading(
@@ -74,17 +82,17 @@ export default (tests) => {
       const TopComponent = () => {
         renderCacheHistory.push([...cache]);
 
-        return jsxs(Fragment, {
-          children: [
-            jsx(LoadingComponent, { cacheId: 'a' }),
-            jsx(LoadingComponent, { cacheId: 'b' }),
-          ],
-        });
+        return React.createElement(
+          React.Fragment,
+          null,
+          React.createElement(LoadingComponent, { cacheId: 'a' }),
+          React.createElement(LoadingComponent, { cacheId: 'b' })
+        );
       };
 
       const html = await waterfallRender(
-        jsx(TopComponent, {}),
-        renderToStaticMarkup
+        React.createElement(TopComponent),
+        ReactDOMServer.renderToStaticMarkup
       );
 
       strictEqual(html, '');
@@ -99,7 +107,7 @@ export default (tests) => {
       const renderCacheHistory = [];
 
       const LoadingComponent = () => {
-        const declareLoading = useContext(WaterfallRenderContext);
+        const declareLoading = React.useContext(WaterfallRenderContext);
         const cacheIdsToLoad = [];
 
         for (const cacheId of ['a', 'b'])
@@ -124,14 +132,16 @@ export default (tests) => {
       const TopComponent = () => {
         renderCacheHistory.push([...cache]);
 
-        return jsxs(Fragment, {
-          children: [jsx(LoadingComponent, {})],
-        });
+        return React.createElement(
+          React.Fragment,
+          null,
+          React.createElement(LoadingComponent)
+        );
       };
 
       const html = await waterfallRender(
-        jsx(TopComponent, {}),
-        renderToStaticMarkup
+        React.createElement(TopComponent),
+        ReactDOMServer.renderToStaticMarkup
       );
 
       strictEqual(html, '');
@@ -144,7 +154,7 @@ export default (tests) => {
     const renderCacheHistory = [];
 
     const LoadingComponent = ({ cacheId, children = null }) => {
-      const declareLoading = useContext(WaterfallRenderContext);
+      const declareLoading = React.useContext(WaterfallRenderContext);
 
       if (!cache.includes(cacheId)) {
         declareLoading(
@@ -165,27 +175,25 @@ export default (tests) => {
     const TopComponent = () => {
       renderCacheHistory.push([...cache]);
 
-      return jsxs(Fragment, {
-        children: [
-          jsx(LoadingComponent, {
-            cacheId: 'a',
-            children: jsx(LoadingComponent, {
-              cacheId: 'aa',
-            }),
-          }),
-          jsx(LoadingComponent, {
-            cacheId: 'b',
-            children: jsx(LoadingComponent, {
-              cacheId: 'ba',
-            }),
-          }),
-        ],
-      });
+      return React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(
+          LoadingComponent,
+          { cacheId: 'a' },
+          React.createElement(LoadingComponent, { cacheId: 'aa' })
+        ),
+        React.createElement(
+          LoadingComponent,
+          { cacheId: 'b' },
+          React.createElement(LoadingComponent, { cacheId: 'ba' })
+        )
+      );
     };
 
     const html = await waterfallRender(
-      jsx(TopComponent, {}),
-      renderToStaticMarkup
+      React.createElement(TopComponent),
+      ReactDOMServer.renderToStaticMarkup
     );
 
     strictEqual(html, '');

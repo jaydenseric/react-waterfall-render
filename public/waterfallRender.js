@@ -1,6 +1,6 @@
 'use strict';
 
-const { jsx } = require('react/jsx-runtime');
+const React = require('react');
 const WaterfallRenderContext = require('./WaterfallRenderContext.js');
 
 /**
@@ -43,11 +43,11 @@ const WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * ```
  * @example <caption>How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org).</caption>
  * ```jsx
- * import { renderToStaticMarkup } from 'react-dom/server.js';
+ * import ReactDOMServer from 'react-dom/server.js';
  * import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
  * import App from './components/App.mjs';
  *
- * waterfallRender(<App />, renderToStaticMarkup).then((html) => {
+ * waterfallRender(<App />, ReactDOMServer.renderToStaticMarkup).then((html) => {
  *   // Do something with the HTML string…
  * });
  * ```
@@ -85,10 +85,11 @@ module.exports = async function waterfallRender(reactNode, render) {
     }
 
     const renderResult = render(
-      jsx(WaterfallRenderContext.Provider, {
-        value: declareLoading,
-        children: reactNode,
-      })
+      React.createElement(
+        WaterfallRenderContext.Provider,
+        { value: declareLoading },
+        reactNode
+      )
     );
 
     if (loadingPromises.length) {

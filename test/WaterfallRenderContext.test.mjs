@@ -1,21 +1,21 @@
 import { ok, strictEqual } from 'assert';
-import { useContext } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server.js';
-import { jsx } from 'react/jsx-runtime.js';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server.js';
 import WaterfallRenderContext from '../public/WaterfallRenderContext.js';
 import getBundleSize from './getBundleSize.mjs';
 
 export default (tests) => {
   tests.add('`WaterfallRenderContext` used as a React context.', () => {
-    const TestComponent = () => useContext(WaterfallRenderContext);
+    const TestComponent = () => React.useContext(WaterfallRenderContext);
     const contextValue = 'abc';
 
     strictEqual(
-      renderToStaticMarkup(
-        jsx(WaterfallRenderContext.Provider, {
-          value: contextValue,
-          children: jsx(TestComponent, {}),
-        })
+      ReactDOMServer.renderToStaticMarkup(
+        React.createElement(
+          WaterfallRenderContext.Provider,
+          { value: contextValue },
+          React.createElement(TestComponent)
+        )
       ),
       contextValue
     );
