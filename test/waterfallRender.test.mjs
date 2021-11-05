@@ -1,9 +1,10 @@
-import { deepStrictEqual, rejects, strictEqual } from 'assert';
+import { deepStrictEqual, ok, rejects, strictEqual } from 'assert';
 import { useContext } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server.js';
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime.js';
 import WaterfallRenderContext from '../public/WaterfallRenderContext.js';
 import waterfallRender from '../public/waterfallRender.js';
+import getBundleSize from './getBundleSize.mjs';
 
 const LOADING_DELAY_MS = 100;
 
@@ -193,5 +194,13 @@ export default (tests) => {
       ['a', 'b'],
       ['a', 'b', 'aa', 'ba'],
     ]);
+  });
+
+  tests.add('`waterfallRender` bundle size.', async () => {
+    const kB = await getBundleSize(
+      new URL('../public/waterfallRender.js', import.meta.url)
+    );
+
+    ok(kB < 0.5);
   });
 };

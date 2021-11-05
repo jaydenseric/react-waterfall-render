@@ -11,6 +11,7 @@
 
 - Also run GitHub Actions CI with Node.js v17.
 - Renamed imports in the test index module.
+- Test the bundle sizes for public modules individually.
 - Amended the changelog entry for v2.0.0.
 
 ## 2.0.0
