@@ -69,7 +69,6 @@ import React from "react";
  */
 const WaterfallRenderContext = React.createContext();
 
-if (typeof process === "object" && process.env.NODE_ENV !== "production")
-  WaterfallRenderContext.displayName = "WaterfallRenderContext";
+WaterfallRenderContext.displayName = "WaterfallRenderContext";
 
 export default WaterfallRenderContext;
