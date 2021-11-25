@@ -12,7 +12,7 @@ import React from 'react';
  * @example <caption>Loading data in a [React](https://reactjs.org) component within a server and client side rendered app.</caption>
  * ```jsx
  * import React from 'react';
- * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.mjs';
+ * import WaterfallRenderContext from 'react-waterfall-render/WaterfallRenderContext.mjs';
  * import useUserProfileData from '../hooks/useUserProfileData.mjs';
  * import UserProfile from './UserProfile.mjs';
  *
@@ -55,12 +55,12 @@ import React from 'react';
  * @prop {Function} Consumer [React context consumer component](https://reactjs.org/docs/context#contextconsumer).
  * @example <caption>How to `import`.</caption>
  * ```js
- * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.mjs';
+ * import WaterfallRenderContext from 'react-waterfall-render/WaterfallRenderContext.mjs';
  * ```
  * @example <caption>Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) [React](https://reactjs.org) hook.</caption>
  * ```js
  * import React from 'react';
- * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.mjs';
+ * import WaterfallRenderContext from 'react-waterfall-render/WaterfallRenderContext.mjs';
  * ```
  *
  * ```js

@@ -26,13 +26,15 @@
     "mjs"
   ],
   "files": [
-    "public"
+    "waterfallRender.mjs",
+    "WaterfallRenderContext.mjs"
   ],
   "sideEffects": false,
   "exports": {
-    "./public/*": "./public/*",
     "./package": "./package.json",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./waterfallRender.mjs": "./waterfallRender.mjs",
+    "./WaterfallRenderContext.mjs": "./WaterfallRenderContext.mjs"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0 || >= 16.0.0"

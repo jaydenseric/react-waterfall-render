@@ -33,12 +33,12 @@ import WaterfallRenderContext from './WaterfallRenderContext.mjs';
  * @returns {Promise<*>} Resolves the final render result, typically a HTML string.
  * @example <caption>How to `import`.</caption>
  * ```js
- * import waterfallRender from 'react-waterfall-render/public/waterfallRender.mjs';
+ * import waterfallRender from 'react-waterfall-render/waterfallRender.mjs';
  * ```
  * @example <caption>How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org).</caption>
  * ```jsx
  * import ReactDOMServer from 'react-dom/server.js';
- * import waterfallRender from 'react-waterfall-render/public/waterfallRender.mjs';
+ * import waterfallRender from 'react-waterfall-render/waterfallRender.mjs';
  * import App from './components/App.mjs';
  *
  * waterfallRender(<App />, ReactDOMServer.renderToStaticMarkup).then((html) => {
