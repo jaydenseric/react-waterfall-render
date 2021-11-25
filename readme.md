@@ -47,22 +47,14 @@ Intended for use in a [Node.js](https://nodejs.org) environment for server side 
 
 #### Examples
 
-_Ways to `import`._
+_How to `import`._
 
-> ```js
-> import { waterfallRender } from 'react-waterfall-render';
-> ```
->
 > ```js
 > import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
 > ```
 
-_Ways to `require`._
+_How to `require`._
 
-> ```js
-> const { waterfallRender } = require('react-waterfall-render');
-> ```
->
 > ```js
 > const waterfallRender = require('react-waterfall-render/public/waterfallRender.js');
 > ```
@@ -94,22 +86,14 @@ _How to server side render a [React](https://reactjs.org) app in [Node.js](https
 
 #### Examples
 
-_Ways to `import`._
+_How to `import`._
 
-> ```js
-> import { WaterfallRenderContext } from 'react-waterfall-render';
-> ```
->
 > ```js
 > import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
 > ```
 
-_Ways to `require`._
+_How to `require`._
 
-> ```js
-> const { WaterfallRenderContext } = require('react-waterfall-render');
-> ```
->
 > ```js
 > const WaterfallRenderContext = require('react-waterfall-render/public/WaterfallRenderContext.js');
 > ```

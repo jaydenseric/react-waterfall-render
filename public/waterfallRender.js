@@ -4,6 +4,14 @@ const React = require('react');
 const WaterfallRenderContext = require('./WaterfallRenderContext.js');
 
 /**
+ * A [React](https://reactjs.org) virtual DOM node; anything that can be
+ * rendered.
+ * @kind typedef
+ * @name ReactNode
+ * @type {undefined|null|boolean|number|string|React.Element|Array<ReactNode>}
+ */
+
+/**
  * Resolves a [React node]{@link ReactNode} rendered with all data loaded
  * within cached.
  *
@@ -25,19 +33,11 @@ const WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * @param {ReactNode} reactNode [React](https://reactjs.org) virtual DOM node.
  * @param {Function} render Synchronous [React](https://reactjs.org) render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower).
  * @returns {Promise<*>} Resolves the final render result, typically a HTML string.
- * @example <caption>Ways to `import`.</caption>
- * ```js
- * import { waterfallRender } from 'react-waterfall-render';
- * ```
- *
+ * @example <caption>How to `import`.</caption>
  * ```js
  * import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
  * ```
- * @example <caption>Ways to `require`.</caption>
- * ```js
- * const { waterfallRender } = require('react-waterfall-render');
- * ```
- *
+ * @example <caption>How to `require`.</caption>
  * ```js
  * const waterfallRender = require('react-waterfall-render/public/waterfallRender.js');
  * ```
