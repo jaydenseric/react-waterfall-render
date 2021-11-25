@@ -69,7 +69,7 @@
     "test:eslint": "eslint --ext mjs,js .",
     "test:prettier": "prettier -c .",
     "test:jsdoc": "jsdoc-md -c",
-    "test:api": "coverage-node test/index.mjs",
+    "test:api": "coverage-node test.mjs",
     "prepublishOnly": "npm test"
   }
 }

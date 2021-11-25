@@ -16,6 +16,7 @@
 
 - Also run GitHub Actions CI with Node.js v17.
 - Avoid named imports from [`react`](https://npm.im/react) and [`react-dom`](https://npm.im/react-dom) as they’re not proper Node.js ESM.
+- Reorganized the test file structure.
 - Renamed imports in the test index module.
 - Test the bundle sizes for public modules individually.
 - Amended the changelog entry for v2.0.0.
