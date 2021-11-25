@@ -31,7 +31,6 @@
   ],
   "sideEffects": false,
   "exports": {
-    "./package": "./package.json",
     "./package.json": "./package.json",
     "./waterfallRender.mjs": "./waterfallRender.mjs",
     "./WaterfallRenderContext.mjs": "./WaterfallRenderContext.mjs"
