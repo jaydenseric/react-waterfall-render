@@ -15,6 +15,7 @@
 ### Patch
 
 - Also run GitHub Actions CI with Node.js v17.
+- Simplified package scripts.
 - Avoid named imports from [`react`](https://npm.im/react) and [`react-dom`](https://npm.im/react-dom) as they’re not proper Node.js ESM.
 - Reorganized the test file structure.
 - Renamed imports in the test index module.
