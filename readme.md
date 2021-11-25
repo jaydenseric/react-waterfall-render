@@ -50,15 +50,15 @@ Intended for use in a [Node.js](https://nodejs.org) environment for server side 
 _How to `import`._
 
 > ```js
-> import waterfallRender from 'react-waterfall-render/waterfallRender.mjs';
+> import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
 > ```
 
 _How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org)._
 
 > ```jsx
-> import ReactDOMServer from 'react-dom/server.js';
-> import waterfallRender from 'react-waterfall-render/waterfallRender.mjs';
-> import App from './components/App.mjs';
+> import ReactDOMServer from "react-dom/server.js";
+> import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
+> import App from "./components/App.mjs";
 >
 > waterfallRender(<App />, ReactDOMServer.renderToStaticMarkup).then((html) => {
 >   // Do something with the HTML string…
@@ -83,14 +83,14 @@ _How to server side render a [React](https://reactjs.org) app in [Node.js](https
 _How to `import`._
 
 > ```js
-> import WaterfallRenderContext from 'react-waterfall-render/WaterfallRenderContext.mjs';
+> import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
 > ```
 
 _Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) [React](https://reactjs.org) hook._
 
 > ```js
-> import React from 'react';
-> import WaterfallRenderContext from 'react-waterfall-render/WaterfallRenderContext.mjs';
+> import React from "react";
+> import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
 > ```
 >
 > ```js
@@ -114,10 +114,10 @@ Declares loading cache promises to [`waterfallRender`](#function-waterfallrender
 _Loading data in a [React](https://reactjs.org) component within a server and client side rendered app._
 
 > ```jsx
-> import React from 'react';
-> import WaterfallRenderContext from 'react-waterfall-render/WaterfallRenderContext.mjs';
-> import useUserProfileData from '../hooks/useUserProfileData.mjs';
-> import UserProfile from './UserProfile.mjs';
+> import React from "react";
+> import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
+> import useUserProfileData from "../hooks/useUserProfileData.mjs";
+> import UserProfile from "./UserProfile.mjs";
 >
 > export default function UserPage({ userId }) {
 >   const declareLoading = React.useContext(WaterfallRenderContext);
@@ -142,7 +142,7 @@ _Loading data in a [React](https://reactjs.org) component within a server and cl
 >     }
 >   }
 >
->   return 'Loading…';
+>   return "Loading…";
 > }
 > ```
 

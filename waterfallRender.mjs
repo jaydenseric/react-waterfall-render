@@ -1,5 +1,5 @@
-import React from 'react';
-import WaterfallRenderContext from './WaterfallRenderContext.mjs';
+import React from "react";
+import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
 
 /**
  * A [React](https://reactjs.org) virtual DOM node; anything that can be
@@ -33,13 +33,13 @@ import WaterfallRenderContext from './WaterfallRenderContext.mjs';
  * @returns {Promise<*>} Resolves the final render result, typically a HTML string.
  * @example <caption>How to `import`.</caption>
  * ```js
- * import waterfallRender from 'react-waterfall-render/waterfallRender.mjs';
+ * import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
  * ```
  * @example <caption>How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org).</caption>
  * ```jsx
- * import ReactDOMServer from 'react-dom/server.js';
- * import waterfallRender from 'react-waterfall-render/waterfallRender.mjs';
- * import App from './components/App.mjs';
+ * import ReactDOMServer from "react-dom/server.js";
+ * import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
+ * import App from "./components/App.mjs";
  *
  * waterfallRender(<App />, ReactDOMServer.renderToStaticMarkup).then((html) => {
  *   // Do something with the HTML string…
@@ -50,10 +50,10 @@ export default async function waterfallRender(reactNode, render) {
   // Check argument 1 exists, allowing an `undefined` value as that is a valid
   // React node.
   if (!arguments.length)
-    throw new TypeError('Argument 1 must be a React node.');
+    throw new TypeError("Argument 1 must be a React node.");
 
-  if (typeof render !== 'function')
-    throw new TypeError('Argument 2 must be a function.');
+  if (typeof render !== "function")
+    throw new TypeError("Argument 2 must be a function.");
 
   /**
    * Repeatedly renders and awaits declared loading cache promises, until no

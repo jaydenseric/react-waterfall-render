@@ -20,6 +20,7 @@
 - Reorganized the test file structure.
 - Renamed imports in the test index module.
 - Test the bundle sizes for public modules individually.
+- Configured Prettier option `singleQuote` to the default, `false`.
 - Amended the changelog entry for v2.0.0.
 
 ## 2.0.0

@@ -1,6 +1,6 @@
-import { fileURLToPath } from 'url';
-import esbuild from 'esbuild';
-import { gzipSize } from 'gzip-size';
+import { fileURLToPath } from "url";
+import esbuild from "esbuild";
+import { gzipSize } from "gzip-size";
 
 /**
  * Gets the bundle size of a module, using ESBuild.
@@ -14,12 +14,12 @@ export default async function getBundleSize(moduleUrl) {
     entryPoints: [fileURLToPath(moduleUrl)],
     external:
       // Package peer dependencies.
-      ['react'],
+      ["react"],
     write: false,
     bundle: true,
     minify: true,
-    legalComments: 'none',
-    format: 'esm',
+    legalComments: "none",
+    format: "esm",
   });
 
   const kB = (await gzipSize(bundle.contents)) / 1000;

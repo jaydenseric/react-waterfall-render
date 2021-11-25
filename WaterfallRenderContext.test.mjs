@@ -1,13 +1,13 @@
-import { ok, strictEqual } from 'assert';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server.js';
-import WaterfallRenderContext from './WaterfallRenderContext.mjs';
-import getBundleSize from './getBundleSize.mjs';
+import { ok, strictEqual } from "assert";
+import React from "react";
+import ReactDOMServer from "react-dom/server.js";
+import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
+import getBundleSize from "./getBundleSize.mjs";
 
 export default (tests) => {
-  tests.add('`WaterfallRenderContext` used as a React context.', () => {
+  tests.add("`WaterfallRenderContext` used as a React context.", () => {
     const TestComponent = () => React.useContext(WaterfallRenderContext);
-    const contextValue = 'abc';
+    const contextValue = "abc";
 
     strictEqual(
       ReactDOMServer.renderToStaticMarkup(
@@ -21,9 +21,9 @@ export default (tests) => {
     );
   });
 
-  tests.add('`WaterfallRenderContext` bundle size.', async () => {
+  tests.add("`WaterfallRenderContext` bundle size.", async () => {
     const kB = await getBundleSize(
-      new URL('./WaterfallRenderContext.mjs', import.meta.url)
+      new URL("./WaterfallRenderContext.mjs", import.meta.url)
     );
 
     ok(kB < 0.5);

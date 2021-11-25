@@ -1,29 +1,29 @@
-import { deepStrictEqual, ok, rejects, strictEqual } from 'assert';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server.js';
-import WaterfallRenderContext from './WaterfallRenderContext.mjs';
-import getBundleSize from './getBundleSize.mjs';
-import waterfallRender from './waterfallRender.mjs';
+import { deepStrictEqual, ok, rejects, strictEqual } from "assert";
+import React from "react";
+import ReactDOMServer from "react-dom/server.js";
+import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
+import getBundleSize from "./getBundleSize.mjs";
+import waterfallRender from "./waterfallRender.mjs";
 
 const LOADING_DELAY_MS = 100;
 
 export default (tests) => {
-  tests.add('`waterfallRender` with argument 1 missing.', async () => {
+  tests.add("`waterfallRender` with argument 1 missing.", async () => {
     await rejects(
       waterfallRender(),
-      new TypeError('Argument 1 must be a React node.')
+      new TypeError("Argument 1 must be a React node.")
     );
   });
 
-  tests.add('`waterfallRender` with argument 2 not a function.', async () => {
+  tests.add("`waterfallRender` with argument 2 not a function.", async () => {
     await rejects(
       waterfallRender(null, true),
-      new TypeError('Argument 2 must be a function.')
+      new TypeError("Argument 2 must be a function.")
     );
   });
 
-  tests.add('`waterfallRender` with the React node a string.', async () => {
-    const string = 'abc';
+  tests.add("`waterfallRender` with the React node a string.", async () => {
+    const string = "abc";
 
     strictEqual(
       await waterfallRender(string, ReactDOMServer.renderToStaticMarkup),
@@ -32,19 +32,19 @@ export default (tests) => {
   });
 
   tests.add(
-    '`waterfallRender` with the React node the value `undefined`.',
+    "`waterfallRender` with the React node the value `undefined`.",
     async () => {
       strictEqual(
         await waterfallRender(undefined, ReactDOMServer.renderToStaticMarkup),
-        ''
+        ""
       );
     }
   );
 
   tests.add(
-    '`waterfallRender` with the React node a React element.',
+    "`waterfallRender` with the React node a React element.",
     async () => {
-      const string = 'abc';
+      const string = "abc";
       const TestComponent = () => string;
 
       strictEqual(
@@ -58,7 +58,7 @@ export default (tests) => {
   );
 
   tests.add(
-    '`waterfallRender` with 1 waterfall step, declaring single loading cache promises.',
+    "`waterfallRender` with 1 waterfall step, declaring single loading cache promises.",
     async () => {
       const cache = [];
       const renderCacheHistory = [];
@@ -85,8 +85,8 @@ export default (tests) => {
         return React.createElement(
           React.Fragment,
           null,
-          React.createElement(LoadingComponent, { cacheId: 'a' }),
-          React.createElement(LoadingComponent, { cacheId: 'b' })
+          React.createElement(LoadingComponent, { cacheId: "a" }),
+          React.createElement(LoadingComponent, { cacheId: "b" })
         );
       };
 
@@ -95,13 +95,13 @@ export default (tests) => {
         ReactDOMServer.renderToStaticMarkup
       );
 
-      strictEqual(html, '');
-      deepStrictEqual(renderCacheHistory, [[], ['a', 'b']]);
+      strictEqual(html, "");
+      deepStrictEqual(renderCacheHistory, [[], ["a", "b"]]);
     }
   );
 
   tests.add(
-    '`waterfallRender` with 1 waterfall step, declaring multiple loading cache promises.',
+    "`waterfallRender` with 1 waterfall step, declaring multiple loading cache promises.",
     async () => {
       const cache = [];
       const renderCacheHistory = [];
@@ -110,7 +110,7 @@ export default (tests) => {
         const declareLoading = React.useContext(WaterfallRenderContext);
         const cacheIdsToLoad = [];
 
-        for (const cacheId of ['a', 'b'])
+        for (const cacheId of ["a", "b"])
           if (!cache.includes(cacheId)) cacheIdsToLoad.push(cacheId);
 
         if (cacheIdsToLoad.length)
@@ -144,12 +144,12 @@ export default (tests) => {
         ReactDOMServer.renderToStaticMarkup
       );
 
-      strictEqual(html, '');
-      deepStrictEqual(renderCacheHistory, [[], ['a', 'b']]);
+      strictEqual(html, "");
+      deepStrictEqual(renderCacheHistory, [[], ["a", "b"]]);
     }
   );
 
-  tests.add('`waterfallRender` with 2 waterfall steps.', async () => {
+  tests.add("`waterfallRender` with 2 waterfall steps.", async () => {
     const cache = [];
     const renderCacheHistory = [];
 
@@ -180,13 +180,13 @@ export default (tests) => {
         null,
         React.createElement(
           LoadingComponent,
-          { cacheId: 'a' },
-          React.createElement(LoadingComponent, { cacheId: 'aa' })
+          { cacheId: "a" },
+          React.createElement(LoadingComponent, { cacheId: "aa" })
         ),
         React.createElement(
           LoadingComponent,
-          { cacheId: 'b' },
-          React.createElement(LoadingComponent, { cacheId: 'ba' })
+          { cacheId: "b" },
+          React.createElement(LoadingComponent, { cacheId: "ba" })
         )
       );
     };
@@ -196,17 +196,17 @@ export default (tests) => {
       ReactDOMServer.renderToStaticMarkup
     );
 
-    strictEqual(html, '');
+    strictEqual(html, "");
     deepStrictEqual(renderCacheHistory, [
       [],
-      ['a', 'b'],
-      ['a', 'b', 'aa', 'ba'],
+      ["a", "b"],
+      ["a", "b", "aa", "ba"],
     ]);
   });
 
-  tests.add('`waterfallRender` bundle size.', async () => {
+  tests.add("`waterfallRender` bundle size.", async () => {
     const kB = await getBundleSize(
-      new URL('./waterfallRender.mjs', import.meta.url)
+      new URL("./waterfallRender.mjs", import.meta.url)
     );
 
     ok(kB < 0.5);
