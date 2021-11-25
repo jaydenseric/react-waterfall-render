@@ -4,7 +4,7 @@
 
 ### Major
 
-- Updated Node.js support to `^12.20.0 || ^14.13.1 || >= 16.0.0`.
+- Updated Node.js support to `^12.22.0 || ^14.17.0 || >= 16.0.0`.
 - Updated dev dependencies, some of which require newer Node.js versions than previously supported.
 - Now uses `React.createElement` instead of the [the new React JSX runtime](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html).
 
