@@ -7,6 +7,7 @@
 - Updated Node.js support to `^12.22.0 || ^14.17.0 || >= 16.0.0`.
 - Updated dev dependencies, some of which require newer Node.js versions than previously supported.
 - Removed the package main index module; deep imports must be used.
+- The API is now ESM in `.mjs` files instead of CJS in `.js` files, [accessible via `import` but not `require`](https://nodejs.org/dist/latest/docs/api/esm.html#require).
 - Now uses `React.createElement` instead of the [the new React JSX runtime](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html).
 
 ### Patch

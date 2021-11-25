@@ -1,8 +1,8 @@
 import { deepStrictEqual, ok, rejects, strictEqual } from 'assert';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server.js';
-import WaterfallRenderContext from '../public/WaterfallRenderContext.js';
-import waterfallRender from '../public/waterfallRender.js';
+import WaterfallRenderContext from '../public/WaterfallRenderContext.mjs';
+import waterfallRender from '../public/waterfallRender.mjs';
 import getBundleSize from './getBundleSize.mjs';
 
 const LOADING_DELAY_MS = 100;
@@ -206,7 +206,7 @@ export default (tests) => {
 
   tests.add('`waterfallRender` bundle size.', async () => {
     const kB = await getBundleSize(
-      new URL('../public/waterfallRender.js', import.meta.url)
+      new URL('../public/waterfallRender.mjs', import.meta.url)
     );
 
     ok(kB < 0.5);

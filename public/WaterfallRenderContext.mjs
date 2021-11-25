@@ -1,6 +1,4 @@
-'use strict';
-
-const { createContext } = require('react');
+import React from 'react';
 
 /**
  * Declares loading cache promises to
@@ -14,7 +12,7 @@ const { createContext } = require('react');
  * @example <caption>Loading data in a [React](https://reactjs.org) component within a server and client side rendered app.</caption>
  * ```jsx
  * import React from 'react';
- * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
+ * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.mjs';
  * import useUserProfileData from '../hooks/useUserProfileData.mjs';
  * import UserProfile from './UserProfile.mjs';
  *
@@ -57,25 +55,21 @@ const { createContext } = require('react');
  * @prop {Function} Consumer [React context consumer component](https://reactjs.org/docs/context#contextconsumer).
  * @example <caption>How to `import`.</caption>
  * ```js
- * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
- * ```
- * @example <caption>How to `require`.</caption>
- * ```js
- * const WaterfallRenderContext = require('react-waterfall-render/public/WaterfallRenderContext.js');
+ * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.mjs';
  * ```
  * @example <caption>Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) [React](https://reactjs.org) hook.</caption>
  * ```js
  * import React from 'react';
- * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.js';
+ * import WaterfallRenderContext from 'react-waterfall-render/public/WaterfallRenderContext.mjs';
  * ```
  *
  * ```js
  * const declareLoading = React.useContext(WaterfallRenderContext);
  * ```
  */
-const WaterfallRenderContext = createContext();
+const WaterfallRenderContext = React.createContext();
 
 if (typeof process === 'object' && process.env.NODE_ENV !== 'production')
   WaterfallRenderContext.displayName = 'WaterfallRenderContext';
 
-module.exports = WaterfallRenderContext;
+export default WaterfallRenderContext;

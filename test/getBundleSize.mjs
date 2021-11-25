@@ -19,6 +19,7 @@ export default async function getBundleSize(moduleUrl) {
     bundle: true,
     minify: true,
     legalComments: 'none',
+    format: 'esm',
   });
 
   const kB = (await gzipSize(bundle.contents)) / 1000;

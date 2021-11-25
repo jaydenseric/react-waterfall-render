@@ -1,7 +1,5 @@
-'use strict';
-
-const React = require('react');
-const WaterfallRenderContext = require('./WaterfallRenderContext.js');
+import React from 'react';
+import WaterfallRenderContext from './WaterfallRenderContext.mjs';
 
 /**
  * A [React](https://reactjs.org) virtual DOM node; anything that can be
@@ -35,16 +33,12 @@ const WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * @returns {Promise<*>} Resolves the final render result, typically a HTML string.
  * @example <caption>How to `import`.</caption>
  * ```js
- * import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
- * ```
- * @example <caption>How to `require`.</caption>
- * ```js
- * const waterfallRender = require('react-waterfall-render/public/waterfallRender.js');
+ * import waterfallRender from 'react-waterfall-render/public/waterfallRender.mjs';
  * ```
  * @example <caption>How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org).</caption>
  * ```jsx
  * import ReactDOMServer from 'react-dom/server.js';
- * import waterfallRender from 'react-waterfall-render/public/waterfallRender.js';
+ * import waterfallRender from 'react-waterfall-render/public/waterfallRender.mjs';
  * import App from './components/App.mjs';
  *
  * waterfallRender(<App />, ReactDOMServer.renderToStaticMarkup).then((html) => {
@@ -52,7 +46,7 @@ const WaterfallRenderContext = require('./WaterfallRenderContext.js');
  * });
  * ```
  */
-module.exports = async function waterfallRender(reactNode, render) {
+export default async function waterfallRender(reactNode, render) {
   // Check argument 1 exists, allowing an `undefined` value as that is a valid
   // React node.
   if (!arguments.length)
@@ -99,4 +93,4 @@ module.exports = async function waterfallRender(reactNode, render) {
   }
 
   return recurseWaterfallRender();
-};
+}
