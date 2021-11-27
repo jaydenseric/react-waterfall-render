@@ -31,7 +31,7 @@ import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
  * @param {ReactNode} reactNode [React](https://reactjs.org) virtual DOM node.
  * @param {Function} render Synchronous [React](https://reactjs.org) render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower).
  * @returns {Promise<*>} Resolves the final render result, typically a HTML string.
- * @example <caption>How to `import`.</caption>
+ * @example <caption>How to import.</caption>
  * ```js
  * import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
  * ```

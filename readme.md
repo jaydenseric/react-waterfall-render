@@ -6,7 +6,7 @@ Renders nested [React](https://reactjs.org) components with asynchronous cached 
 
 Useful for [GraphQL](https://graphql.org) clients (e.g. [`graphql-react`](https://npm.im/graphql-react)) and server side rendering.
 
-## Setup
+## Installation
 
 To install with [npm](https://npmjs.com/get-npm), run:
 
@@ -16,7 +16,7 @@ npm install react-waterfall-render
 
 Use the [`WaterfallRenderContext`](#member-waterfallrendercontext) in [React](https://reactjs.org) components to declare asynchronous cached loading, and use the function [`waterfallRender`](#function-waterfallrender) to server side render your [React](https://reactjs.org) app in a fully loaded state.
 
-## Support
+## Requirements
 
 - [Node.js](https://nodejs.org): `^12.22.0 || ^14.17.0 || >= 16.0.0`
 - [Browsers](https://npm.im/browserslist): `> 0.5%, not OperaMini all, not IE > 0, not dead`
@@ -47,7 +47,7 @@ Intended for use in a [Node.js](https://nodejs.org) environment for server side 
 
 #### Examples
 
-_How to `import`._
+_How to import._
 
 > ```js
 > import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
@@ -80,7 +80,7 @@ _How to server side render a [React](https://reactjs.org) app in [Node.js](https
 
 #### Examples
 
-_How to `import`._
+_How to import._
 
 > ```js
 > import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";

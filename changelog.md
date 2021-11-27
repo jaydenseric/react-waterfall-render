@@ -28,6 +28,7 @@
   - Errors when the surplus is greater than 25% of the limit, suggesting the limit should be reduced.
   - Resolves the minified bundle and its gzipped size for debugging in tests.
 - Configured Prettier option `singleQuote` to the default, `false`.
+- Documentation tweaks.
 - Amended the changelog entry for v2.0.0.
 
 ## 2.0.0
