@@ -23,6 +23,10 @@
 - Reorganized the test file structure.
 - Renamed imports in the test index module.
 - Test the bundle sizes for public modules individually.
+- Use a new `assertBundleSize` function to assert module bundle size in tests:
+  - Failure message contains details about the bundle size and how much the limit was exceeded.
+  - Errors when the surplus is greater than 25% of the limit, suggesting the limit should be reduced.
+  - Resolves the minified bundle and its gzipped size for debugging in tests.
 - Configured Prettier option `singleQuote` to the default, `false`.
 - Amended the changelog entry for v2.0.0.
 

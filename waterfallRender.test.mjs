@@ -1,13 +1,20 @@
-import { deepStrictEqual, ok, rejects, strictEqual } from "assert";
+import { deepStrictEqual, rejects, strictEqual } from "assert";
 import React from "react";
 import ReactDOMServer from "react-dom/server.js";
 import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
-import getBundleSize from "./getBundleSize.mjs";
+import assertBundleSize from "./test/assertBundleSize.mjs";
 import waterfallRender from "./waterfallRender.mjs";
 
 const LOADING_DELAY_MS = 100;
 
 export default (tests) => {
+  tests.add("`waterfallRender` bundle size.", async () => {
+    await assertBundleSize(
+      new URL("./waterfallRender.mjs", import.meta.url),
+      350
+    );
+  });
+
   tests.add(
     "`waterfallRender` with argument 1 `reactNode` missing.",
     async () => {
@@ -208,13 +215,5 @@ export default (tests) => {
       ["a", "b"],
       ["a", "b", "aa", "ba"],
     ]);
-  });
-
-  tests.add("`waterfallRender` bundle size.", async () => {
-    const kB = await getBundleSize(
-      new URL("./waterfallRender.mjs", import.meta.url)
-    );
-
-    ok(kB < 0.5);
   });
 };
