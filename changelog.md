@@ -19,6 +19,7 @@
 - Simplified package scripts.
 - Avoid named imports from [`react`](https://npm.im/react) and [`react-dom`](https://npm.im/react-dom) as they’re not proper Node.js ESM.
 - Removed conditionality on the Node.js global `process.env.NODE_ENV`.
+- Error messages are now more detailed.
 - Reorganized the test file structure.
 - Renamed imports in the test index module.
 - Test the bundle sizes for public modules individually.

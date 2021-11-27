@@ -8,19 +8,25 @@ import waterfallRender from "./waterfallRender.mjs";
 const LOADING_DELAY_MS = 100;
 
 export default (tests) => {
-  tests.add("`waterfallRender` with argument 1 missing.", async () => {
-    await rejects(
-      waterfallRender(),
-      new TypeError("Argument 1 must be a React node.")
-    );
-  });
+  tests.add(
+    "`waterfallRender` with argument 1 `reactNode` missing.",
+    async () => {
+      await rejects(
+        waterfallRender(),
+        new TypeError("Argument 1 `reactNode` must be a React node.")
+      );
+    }
+  );
 
-  tests.add("`waterfallRender` with argument 2 not a function.", async () => {
-    await rejects(
-      waterfallRender(null, true),
-      new TypeError("Argument 2 must be a function.")
-    );
-  });
+  tests.add(
+    "`waterfallRender` with argument 2 `render` not a function.",
+    async () => {
+      await rejects(
+        waterfallRender(null, true),
+        new TypeError("Argument 2 `render` must be a function.")
+      );
+    }
+  );
 
   tests.add("`waterfallRender` with the React node a string.", async () => {
     const string = "abc";

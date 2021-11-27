@@ -50,10 +50,10 @@ export default async function waterfallRender(reactNode, render) {
   // Check argument 1 exists, allowing an `undefined` value as that is a valid
   // React node.
   if (!arguments.length)
-    throw new TypeError("Argument 1 must be a React node.");
+    throw new TypeError("Argument 1 `reactNode` must be a React node.");
 
   if (typeof render !== "function")
-    throw new TypeError("Argument 2 must be a function.");
+    throw new TypeError("Argument 2 `render` must be a function.");
 
   /**
    * Repeatedly renders and awaits declared loading cache promises, until no
