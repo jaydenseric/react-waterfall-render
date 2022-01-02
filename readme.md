@@ -23,7 +23,7 @@ Use the [`WaterfallRenderContext`](#exports-WaterfallRenderContext.mjs-export-de
 
 ## Exports
 
-These ECMAScript modules are published to [npm](https://npmjs.com) and exported via the [`package.json`](./package.json) `exports` field.
+These ECMAScript modules are published to [npm](https://npmjs.com) and exported via the [`package.json`](./package.json) `exports` field:
 
 - [`waterfallRender.mjs`](#exports-waterfallRender.mjs)
 - [`WaterfallRenderContext.mjs`](#exports-WaterfallRenderContext.mjs)
