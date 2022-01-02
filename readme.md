@@ -14,142 +14,105 @@ To install with [npm](https://npmjs.com/get-npm), run:
 npm install react-waterfall-render
 ```
 
-Use the [`WaterfallRenderContext`](#member-waterfallrendercontext) in [React](https://reactjs.org) components to declare asynchronous cached loading, and use the function [`waterfallRender`](#function-waterfallrender) to server side render your [React](https://reactjs.org) app in a fully loaded state.
+Use the [`WaterfallRenderContext`](#exports-WaterfallRenderContext.mjs-export-default) in [React](https://reactjs.org) components to declare asynchronous cached loading, and use the function [`waterfallRender`](#exports-waterfallRender.mjs-export-default) to server side render your [React](https://reactjs.org) app in a fully loaded state.
 
 ## Requirements
 
 - [Node.js](https://nodejs.org): `^12.22.0 || ^14.17.0 || >= 16.0.0`
 - [Browsers](https://npm.im/browserslist): `> 0.5%, not OperaMini all, not IE > 0, not dead`
 
-## API
+## Exports
 
-- [function waterfallRender](#function-waterfallrender)
-- [member WaterfallRenderContext](#member-waterfallrendercontext)
-- [type DeclareLoading](#type-declareloading)
-- [type ReactNode](#type-reactnode)
+These ECMAScript modules are published to [npm](https://npmjs.com) and exported via the [`package.json`](./package.json) `exports` field.
 
-### function waterfallRender
+- [`waterfallRender.mjs`](#exports-waterfallRender.mjs)
+- [`WaterfallRenderContext.mjs`](#exports-WaterfallRenderContext.mjs)
 
-Resolves a [React node](#type-reactnode) rendered with all data loaded within cached.
+### <span id="exports-waterfallRender.mjs">[`waterfallRender.mjs`](./waterfallRender.mjs)</span>
 
-It repeatedly renders the [React node](#type-reactnode) and awaits any loading cache promises declared within (using the [declare loading function](#type-declareloading) via [`WaterfallRenderContext`](#member-waterfallrendercontext)), until no further loading is declared; implying all data has loaded and is rendered from cache.
+#### <span id="exports-waterfallRender.mjs-export-default">Export `default`</span>
+
+Function `waterfallRender` — Resolves a React node rendered with all data loaded within cached; typically a HTML string.
+
+It repeatedly renders the React node and awaits any loading cache promises declared within (using the [declare loading function](#exports-waterfallRender.mjs-type-DeclareLoading) via [`WaterfallRenderContext`](#exports-WaterfallRenderContext.mjs-export-default), until no further loading is declared; implying all data has loaded and is rendered from cache.
 
 If server side rendering, afterwards the cache should be serialized for hydration on the client prior to the initial client side render.
 
-Intended for use in a [Node.js](https://nodejs.org) environment for server side rendering, but could potentially be used for preloading components in modern browser environments that support async functions, etc.
+Intended for use in a server environment environment for server side rendering, but could potentially be used for preloading components in modern browser environments that support async functions, etc.
 
-| Parameter | Type | Description |
-| :-- | :-- | :-- |
-| `reactNode` | [ReactNode](#type-reactnode) | [React](https://reactjs.org) virtual DOM node. |
-| `render` | Function | Synchronous [React](https://reactjs.org) render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower). |
+##### <span id="exports-waterfallRender.mjs-export-default-parameters">Parameters</span>
 
-**Returns:** Promise<\*> — Resolves the final render result, typically a HTML string.
+1. `reactNode`: `React.ReactNode` — React node to render.
+2. `render`: `Function` — Synchronous React render function, e.g. [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) (faster), or [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) (slower).
 
-#### Examples
+##### <span id="exports-waterfallRender.mjs-export-default-returns">Returns</span>
 
-_How to import._
+`Promise<unknown>` — Resolves the final render result, typically a HTML string.
 
-> ```js
-> import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
-> ```
+#### <span id="exports-waterfallRender.mjs-type-DeclareLoading">Type `DeclareLoading`</span>
 
-_How to server side render a [React](https://reactjs.org) app in [Node.js](https://nodejs.org)._
+Function — Declares loading cache promises to [`waterfallRender`](#exports-waterfallRender.mjs-export-default). Available within React components via [`WaterfallRenderContext`](#exports-WaterfallRenderContext.mjs-export-default).
 
-> ```jsx
-> import ReactDOMServer from "react-dom/server.js";
-> import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
-> import App from "./components/App.mjs";
->
-> waterfallRender(<App />, ReactDOMServer.renderToStaticMarkup).then((html) => {
->   // Do something with the HTML string…
-> });
-> ```
+##### <span id="exports-waterfallRender.mjs-type-DeclareLoading-parameters">Parameters</span>
 
----
+1. `...promises`: `Promise<any>` — Promises that resolve once loading data has been cached. The values resolved don’t matter. Multiple arguments can be used, similar to how [`Array.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) works.
 
-### member WaterfallRenderContext
+##### <span id="exports-waterfallRender.mjs-type-DeclareLoading-returns">Returns</span>
 
-[React context object](https://reactjs.org/docs/context#api) for making the [declare loading function](#type-declareloading) available within components when rendering with [`waterfallRender`](#function-waterfallrender).
+`void`
 
-**Type:** object
+##### <span id="exports-waterfallRender.mjs-type-DeclareLoading-example-1">Example 1</span>
 
-| Property | Type | Description |
-| :-- | :-- | :-- |
-| `Provider` | Function | [React context provider component](https://reactjs.org/docs/context#contextprovider). |
-| `Consumer` | Function | [React context consumer component](https://reactjs.org/docs/context#contextconsumer). |
+Loading data in a React component within a server and client side rendered app.
 
-#### Examples
+```jsx
+import React from "react";
+import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
+import useUserProfileData from "../hooks/useUserProfileData.mjs";
+import UserProfile from "./UserProfile.mjs";
 
-_How to import._
+export default function UserPage({ userId }) {
+  const declareLoading = React.useContext(WaterfallRenderContext);
+  const { load, loading, cache } = useUserProfileData(userId);
 
-> ```js
-> import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
-> ```
+  // For this example, assume loading errors are cached.
+  if (cache) return <UserProfile data={cache} />;
 
-_Use within a component with the [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext) [React](https://reactjs.org) hook._
+  if (!loading) {
+    const userDataPromise = load();
 
-> ```js
-> import React from "react";
-> import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
-> ```
->
-> ```js
-> const declareLoading = React.useContext(WaterfallRenderContext);
-> ```
+    // Only present when the app is server side rendered using the function
+    // `waterfallRender`.
+    if (declareLoading) {
+      declareLoading(userDataPromise);
 
----
+      // This render is on the server and will be discarded anyway for a
+      // re-render once the declared loading promises resolve, so it’s
+      // slightly more efficient to render nothing; particularly if the
+      // loading state is expensive to render.
+      return null;
+    }
+  }
 
-### type DeclareLoading
+  return "Loading…";
+}
+```
 
-Declares loading cache promises to [`waterfallRender`](#function-waterfallrender). Available within [React](https://reactjs.org) components via [`WaterfallRenderContext`](#member-waterfallrendercontext).
+### <span id="exports-WaterfallRenderContext.mjs">[`WaterfallRenderContext.mjs`](./WaterfallRenderContext.mjs)</span>
 
-**Type:** Function
+#### <span id="exports-WaterfallRenderContext.mjs-export-default">Export `default`</span>
 
-| Parameter | Type | Description |
-| :-- | :-- | :-- |
-| `promises` | …Promise<\*> | Promises that resolve once loading data has been cached. The values resolved don’t matter. Multiple arguments can be used, similar to how [`Array.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) works. |
+[React context](https://reactjs.org/docs/context.html) `WaterfallRenderContext` — For making the [declare loading function](#exports-waterfallRender.mjs-type-DeclareLoading) available within components when rendering with [`waterfallRender`](#exports-waterfallRender.mjs-export-default).
 
-#### Examples
+##### <span id="exports-WaterfallRenderContext.mjs-export-default-example-1">Example 1</span>
 
-_Loading data in a [React](https://reactjs.org) component within a server and client side rendered app._
+Use within a component with the React hook [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext).
 
-> ```jsx
-> import React from "react";
-> import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
-> import useUserProfileData from "../hooks/useUserProfileData.mjs";
-> import UserProfile from "./UserProfile.mjs";
->
-> export default function UserPage({ userId }) {
->   const declareLoading = React.useContext(WaterfallRenderContext);
->   const { load, loading, cache } = useUserProfileData(userId);
->
->   // For this example, assume loading errors are cached.
->   if (cache) return <UserProfile data={cache} />;
->
->   if (!loading) {
->     const userDataPromise = load();
->
->     // Only present when the app is server side rendered using the function
->     // `waterfallRender`.
->     if (declareLoading) {
->       declareLoading(userDataPromise);
->
->       // This render is on the server and will be discarded anyway for a
->       // re-render once the declared loading promises resolve, so it’s
->       // slightly more efficient to render nothing; particularly if the
->       // loading state is expensive to render.
->       return null;
->     }
->   }
->
->   return "Loading…";
-> }
-> ```
+```js
+import React from "react";
+import WaterfallRenderContext from "react-waterfall-render/WaterfallRenderContext.mjs";
+```
 
----
-
-### type ReactNode
-
-A [React](https://reactjs.org) virtual DOM node; anything that can be rendered.
-
-**Type:** `undefined` | `null` | boolean | number | string | React.Element | Array<[ReactNode](#type-reactnode)>
+```js
+const declareLoading = React.useContext(WaterfallRenderContext);
+```

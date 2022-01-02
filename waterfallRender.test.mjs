@@ -1,3 +1,5 @@
+// @ts-check
+
 import { deepStrictEqual, rejects, strictEqual } from "assert";
 import React from "react";
 import ReactDOMServer from "react-dom/server.js";
@@ -7,6 +9,10 @@ import waterfallRender from "./waterfallRender.mjs";
 
 const LOADING_DELAY_MS = 100;
 
+/**
+ * Adds `waterfallRender` tests.
+ * @param {import("test-director").default} tests Test director.
+ */
 export default (tests) => {
   tests.add("`waterfallRender` bundle size.", async () => {
     await assertBundleSize(
@@ -19,6 +25,7 @@ export default (tests) => {
     "`waterfallRender` with argument 1 `reactNode` missing.",
     async () => {
       await rejects(
+        // @ts-expect-error Testing invalid.
         waterfallRender(),
         new TypeError("Argument 1 `reactNode` must be a React node.")
       );
@@ -29,7 +36,11 @@ export default (tests) => {
     "`waterfallRender` with argument 2 `render` not a function.",
     async () => {
       await rejects(
-        waterfallRender(null, true),
+        waterfallRender(
+          null,
+          // @ts-expect-error Testing invalid.
+          true
+        ),
         new TypeError("Argument 2 `render` must be a function.")
       );
     }
@@ -58,7 +69,8 @@ export default (tests) => {
     "`waterfallRender` with the React node a React element.",
     async () => {
       const string = "abc";
-      const TestComponent = () => string;
+      const TestComponent = () =>
+        React.createElement(React.Fragment, null, string);
 
       strictEqual(
         await waterfallRender(
@@ -73,20 +85,29 @@ export default (tests) => {
   tests.add(
     "`waterfallRender` with 1 waterfall step, declaring single loading cache promises.",
     async () => {
+      /** @type {Array<string>} */
       const cache = [];
+
+      /** @type {Array<Array<string>>} */
       const renderCacheHistory = [];
 
+      /** @param {{ cacheId: string }} props Props. */
       const LoadingComponent = ({ cacheId }) => {
         const declareLoading = React.useContext(WaterfallRenderContext);
 
+        if (!declareLoading)
+          throw new Error("Missing `WaterfallRenderContext`.");
+
         if (!cache.includes(cacheId))
           declareLoading(
-            new Promise((resolve) => {
-              setTimeout(() => {
-                cache.push(cacheId);
-                resolve();
-              }, LOADING_DELAY_MS);
-            })
+            /** @type {Promise<void>} */ (
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  cache.push(cacheId);
+                  resolve();
+                }, LOADING_DELAY_MS);
+              })
+            )
           );
 
         return null;
@@ -116,11 +137,18 @@ export default (tests) => {
   tests.add(
     "`waterfallRender` with 1 waterfall step, declaring multiple loading cache promises.",
     async () => {
+      /** @type {Array<string>} */
       const cache = [];
+
+      /** @type {Array<Array<string>>} */
       const renderCacheHistory = [];
 
       const LoadingComponent = () => {
         const declareLoading = React.useContext(WaterfallRenderContext);
+
+        if (!declareLoading)
+          throw new Error("Missing `WaterfallRenderContext`.");
+
         const cacheIdsToLoad = [];
 
         for (const cacheId of ["a", "b"])
@@ -130,12 +158,14 @@ export default (tests) => {
           declareLoading(
             ...cacheIdsToLoad.map(
               (cacheId) =>
-                new Promise((resolve) => {
-                  setTimeout(() => {
-                    cache.push(cacheId);
-                    resolve();
-                  }, LOADING_DELAY_MS);
-                })
+                /** @type {Promise<void>} */ (
+                  new Promise((resolve) => {
+                    setTimeout(() => {
+                      cache.push(cacheId);
+                      resolve();
+                    }, LOADING_DELAY_MS);
+                  })
+                )
             )
           );
 
@@ -163,26 +193,34 @@ export default (tests) => {
   );
 
   tests.add("`waterfallRender` with 2 waterfall steps.", async () => {
+    /** @type {Array<string>} */
     const cache = [];
+
+    /** @type {Array<Array<string>>} */
     const renderCacheHistory = [];
 
+    /** @param {{ cacheId: string, children?: React.ReactNode }} props Props. */
     const LoadingComponent = ({ cacheId, children = null }) => {
       const declareLoading = React.useContext(WaterfallRenderContext);
 
+      if (!declareLoading) throw new Error("Missing `WaterfallRenderContext`.");
+
       if (!cache.includes(cacheId)) {
         declareLoading(
-          new Promise((resolve) => {
-            setTimeout(() => {
-              cache.push(cacheId);
-              resolve();
-            }, LOADING_DELAY_MS);
-          })
+          /** @type {Promise<void>} */ (
+            new Promise((resolve) => {
+              setTimeout(() => {
+                cache.push(cacheId);
+                resolve();
+              }, LOADING_DELAY_MS);
+            })
+          )
         );
 
         return null;
       }
 
-      return children;
+      return React.createElement(React.Fragment, null, children);
     };
 
     const TopComponent = () => {
