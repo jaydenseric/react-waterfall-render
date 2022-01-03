@@ -102,7 +102,7 @@ export default function UserPage({ userId }) {
 
 #### <span id="exports-WaterfallRenderContext.mjs-export-default">Export `default`</span>
 
-[React context](https://reactjs.org/docs/context.html) `WaterfallRenderContext` — For making the [declare loading function](#exports-waterfallRender.mjs-type-DeclareLoading) available within components when rendering with [`waterfallRender`](#exports-waterfallRender.mjs-export-default).
+`React.Context`<[`DeclareLoading`](#exports-waterfallRender.mjs-type-DeclareLoading) | `undefined`> — The `WaterfallRenderContext` [React context](https://reactjs.org/docs/context.html) for making the [declare loading function](#exports-waterfallRender.mjs-type-DeclareLoading) available within components when rendering with [`waterfallRender`](#exports-waterfallRender.mjs-export-default).
 
 ##### <span id="exports-WaterfallRenderContext.mjs-export-default-example-1">Example 1</span>
 

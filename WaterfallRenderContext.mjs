@@ -9,6 +9,7 @@ import React from "react";
  * [React context](https://reactjs.org/docs/context.html) for making the
  * {@link DeclareLoading declare loading function} available within components
  * when rendering with {@linkcode waterfallRender}.
+ * @type {React.Context<DeclareLoading | undefined>}
  * @example
  * Use within a component with the React hook
  * [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext).
