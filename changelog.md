@@ -1,5 +1,11 @@
 # react-waterfall-render changelog
 
+## Next
+
+### Patch
+
+- Updated dev dependencies.
+
 ## 4.0.0
 
 ### Major

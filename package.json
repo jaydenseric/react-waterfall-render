@@ -43,17 +43,17 @@
     "react": "16.14 - 17"
   },
   "devDependencies": {
-    "@types/node": "^17.0.6",
-    "@types/react": "^17.0.38",
+    "@types/node": "^17.0.17",
+    "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
-    "coverage-node": "^5.0.1",
-    "esbuild": "^0.14.10",
-    "eslint": "^8.6.0",
-    "eslint-config-env": "^23.0.1",
+    "coverage-node": "^6.0.1",
+    "esbuild": "^0.14.21",
+    "eslint": "^8.8.0",
+    "eslint-config-env": "^23.0.2",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-compat": "^4.0.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsdoc": "^37.5.0",
+    "eslint-plugin-compat": "^4.0.2",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsdoc": "^37.8.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
@@ -62,8 +62,8 @@
     "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "test-director": "^8.0.1",
-    "typescript": "^4.6.0-dev.20220102"
+    "test-director": "^8.0.2",
+    "typescript": "^4.6.0-dev.20220210"
   },
   "scripts": {
     "eslint": "eslint .",
