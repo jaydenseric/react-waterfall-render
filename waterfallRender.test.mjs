@@ -3,9 +3,10 @@
 import { deepStrictEqual, rejects, strictEqual } from "assert";
 import React from "react";
 import ReactDOMServer from "react-dom/server.js";
-import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
+
 import assertBundleSize from "./test/assertBundleSize.mjs";
 import waterfallRender from "./waterfallRender.mjs";
+import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
 
 const LOADING_DELAY_MS = 100;
 
