@@ -6,6 +6,7 @@
 
 - Updated dev dependencies.
 - Simplified dev dependencies and config for ESLint.
+- Removed the now redundant `not IE > 0` from the Browserslist query.
 
 ## 4.0.0
 

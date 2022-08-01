@@ -19,7 +19,7 @@ Use the [`WaterfallRenderContext`](#exports-WaterfallRenderContext.mjs-export-de
 ## Requirements
 
 - [Node.js](https://nodejs.org): `^12.22.0 || ^14.17.0 || >= 16.0.0`
-- [Browsers](https://npm.im/browserslist): `> 0.5%, not OperaMini all, not IE > 0, not dead`
+- [Browsers](https://npm.im/browserslist): `> 0.5%, not OperaMini all, not dead`
 
 ## Exports
 
