@@ -4,12 +4,14 @@
 
 ### Patch
 
+- Updated the [`react`](https://npm.im/react) peer dependency to `16.14 - 18`.
 - Updated dev dependencies.
 - Simplified dev dependencies and config for ESLint.
 - Removed the now redundant `not IE > 0` from the Browserslist query.
 - Updated `jsconfig.json`:
   - Set `maxNodeModuleJsDepth` to `10`.
   - Set `compilerOptions.module` to `nodenext`.
+- Updated `react-dom/server` imports in tests and JSDoc code examples to suit React v18.
 
 ## 4.0.0
 

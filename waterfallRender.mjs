@@ -32,7 +32,7 @@ import WaterfallRenderContext from "./WaterfallRenderContext.mjs";
  * Server side rendering a React app.
  *
  * ```jsx
- * import ReactDOMServer from "react-dom/server.js";
+ * import ReactDOMServer from "react-dom/server";
  * import waterfallRender from "react-waterfall-render/waterfallRender.mjs";
  * import App from "./components/App.mjs";
  *
