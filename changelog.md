@@ -7,6 +7,9 @@
 - Updated dev dependencies.
 - Simplified dev dependencies and config for ESLint.
 - Removed the now redundant `not IE > 0` from the Browserslist query.
+- Updated `jsconfig.json`:
+  - Set `maxNodeModuleJsDepth` to `10`.
+  - Set `compilerOptions.module` to `nodenext`.
 
 ## 4.0.0
 
