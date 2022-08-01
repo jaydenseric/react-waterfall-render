@@ -12,6 +12,7 @@
   - Set `maxNodeModuleJsDepth` to `10`.
   - Set `compilerOptions.module` to `nodenext`.
 - Updated `react-dom/server` imports in tests and JSDoc code examples to suit React v18.
+- Updated the ESLint config.
 
 ## 4.0.0
 
