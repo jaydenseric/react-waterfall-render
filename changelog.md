@@ -13,6 +13,7 @@
   - Set `compilerOptions.module` to `nodenext`.
 - Updated `react-dom/server` imports in tests and JSDoc code examples to suit React v18.
 - Updated the ESLint config.
+- Updated GitHub Actions CI config.
 - Revamped the readme:
   - Removed the badges.
   - Removed the detailed API docs. The JSDoc comments and TypeScript types in the exported modules are now the primary documentation.
