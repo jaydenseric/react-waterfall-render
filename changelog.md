@@ -13,6 +13,10 @@
   - Set `compilerOptions.module` to `nodenext`.
 - Updated `react-dom/server` imports in tests and JSDoc code examples to suit React v18.
 - Updated the ESLint config.
+- Revamped the readme:
+  - Removed the badges.
+  - Removed the detailed API docs. The JSDoc comments and TypeScript types in the exported modules are now the primary documentation.
+  - Added information about Deno, import maps, TypeScript config, and [optimal JavaScript module design](https://jaydenseric.com/blog/optimal-javascript-module-design).
 
 ## 4.0.0
 
