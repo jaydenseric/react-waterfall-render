@@ -1,6 +1,6 @@
 // @ts-check
 
-import { deepStrictEqual, rejects, strictEqual } from "assert";
+import { deepStrictEqual, rejects, strictEqual } from "node:assert";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 
