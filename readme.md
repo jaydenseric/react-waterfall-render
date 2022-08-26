@@ -18,7 +18,7 @@ For [Deno](https://deno.land) and browsers, an example import map (realistically
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
-    "react-waterfall-render/": "https://unpkg.com/react-waterfall-render@4.0.1/"
+    "react-waterfall-render/": "https://unpkg.com/react-waterfall-render@5.0.0/"
   }
 }
 ```

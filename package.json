@@ -1,6 +1,6 @@
 {
   "name": "react-waterfall-render",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Renders nested React components with asynchronous cached loading; useful for GraphQL clients and server side rendering.",
   "license": "MIT",
   "author": {

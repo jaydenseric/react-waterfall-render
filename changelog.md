@@ -1,6 +1,6 @@
 # react-waterfall-render changelog
 
-## Next
+## 5.0.0
 
 ### Major
 
